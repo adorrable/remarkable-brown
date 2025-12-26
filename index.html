@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velvet Crown Hair Studio – Abuja Luxury Salon</title>
+  <meta name="description" content="Velvet Crown Hair Studio – Luxury hairdressing in Abuja. Modern cuts, color artistry, treatments, and bridal styling in a premium, world-class salon." />
+  <style>
+    :root{
+      --bg: #f6f4ef;
+      --text: #1b1b1b;
+      --muted: #5b5850;
+      --gold: #c3a24f;
+      --gold-dark: #a18a2f;
+      --card: #ffffff;
+      --shadow: 0 8px 24px rgba(0,0,0,.08);
+      --radius: 14px;
+      --accent: #e8d6a9;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* Layout scaffolding */
+    header, section{width:100%;}
+    .container{max-width:1200px;margin:0 auto;padding:0 1.25rem}
+
+    /* NAV */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(6px); background:rgba(255,255,255,0.92); border-bottom:1px solid #eee}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{font-weight:700;letter-spacing:.5px;font-size:1.05rem}
+    .nav-links{display:flex;gap:1rem;flex-wrap:wrap}
+    .nav-links a{padding:8px 12px;border-radius:999px;font-size:.92rem;color:#333}
+    .nav-links a:hover{background:#f1f0ea}
+
+    /* HERO */
+    .hero{position:relative;min-height:72vh;display:flex;align-items:center;justify-content:center;color:#111;overflow:hidden}
+    .hero-inner{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:normal}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.25) 0%, rgba(0,0,0,.15) 40%, rgba(0,0,0,.25) 100%)}
+    .hero-content{position:relative;text-align:left;max-width:700px;padding:2rem;border-radius:12px;background:rgba(255,255,255,.82);box-shadow:var(--shadow)}
+    .hero h1{font-size:2.6rem;line-height:1.08;margin:0 0 0.6rem;font-weight:800;color:#1b1b1b}
+    .hero p{font-size:1.1rem;color:#4b4b4b;margin-bottom:1.25rem}
+    .cta-group{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{border:0;border-radius:999px;padding:14px 20px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:transform .2s ease, box-shadow .2s ease}
+    .btn[disabled]{opacity:.6;cursor:not-allowed}
+    .btn-primary{background:var(--gold);color:#2b2200;box-shadow:0 6px 16px rgba(195,164,79,.25)}
+    .btn-primary:hover{transform:translateY(-1px);}
+    .btn-secondary{background:#fff;border:1px solid #e4d9b9;color:#3a2f00}
+    .btn-ghost{background:transparent;border:1px dashed #d4c7a0;color:#6a5a00}
+
+    /* SECTIONS */
+    section{padding:72px 0}
+    h2{font-size:2rem;margin:0 0 0.75rem}
+    .lead{color:var(--muted);font-size:1.05rem}
+
+    /* CARDS GRID */
+    .grid{display:grid;gap:22px;grid-template-columns:repeat(12, 1fr)}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;border:1px solid #eee}
+    .card-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .icon{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#fff;border:1px solid #eee}
+    .card h3{margin:0;font-size:1.05rem}
+    .card p{color:#555;font-size:.95rem;margin:6px 0 12px}
+    .service-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+    /* VISUALS */
+    .visual{display:flex;gap:28px;align-items:center}
+    .visual img{width:100%;max-height:420px;object-fit:cover;border-radius:12px}
+    .visual-text{flex:1}
+
+    /* WHY / TESTIMONIALS / FAQ */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    ul{padding-left:1.1rem}
+    blockquote{border-left:4px solid var(--gold);margin:0 0 8px;padding-left:12px;font-style:italic}
+
+    /* FAQ */
+    details{border:1px solid #eee;border-radius:8px;padding:8px 12px;margin:8px 0}
+    summary{font-weight:600;cursor:pointer}
+
+    /* FOOTER */
+    footer{border-top:1px solid #eee;background:#fff;margin-top:40px}
+    .footer-content{padding:28px 0;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+    .footer-col{flex:1 1 200px}
+    .social{display:flex;gap:10px}
+
+    /* FLOATING WHATSAPP */
+    .wa-float{position:fixed;right:22px;bottom:22px;z-index:99}
+    .wa-btn{background:#25D366;border-radius:50px;padding:14px 16px;color:#fff;display:flex;align-items:center;gap:8px;box-shadow:0 6px 14px rgba(0,0,0,.15);border:0;cursor:pointer}
+    .wa-btn:hover{transform:translateY(-1px)}
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px){
+      .hero h1{font-size:2.2rem}
+    }
+    @media (max-width: 900px){
+      .hero{min-height:60vh}
+      .hero-content{padding:1.25rem}
+      .visual{flex-direction:column}
+      .two-col{grid-template-columns:1fr}
+      .nav-links{gap:.5rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating WhatsApp Button -->
+  <div class="wa-float" aria-label="Chat with Velvet Crown on WhatsApp">
+    <a href="https://wa.me/2348140000000" target="_blank" rel="noopener" class="wa-btn" style="text-decoration:none">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:white;overflow:hidden">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg" aria-label="WhatsApp icon"><path d="M20.5 3.5h-17A3.5 3.5 0 0 0 0 7v10a3.5 3.5 0 0 0 3.5 3.5h17a3.5 3.5 0 0 0 3.5-3.5v-10a3.5 3.5 0 0 0-3.5-3.5zm-7.5 12.5l-6-3.75V8.25l6 3.75 7-4.5V8l-7 4.5-6-3.75V9.5l6 3.75 7-4.5V15z"/></svg>
+      </span>
+      <span style="font-weight:700">Chat on WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" role="navigation" aria-label="Main Navigation">
+    <div class="container nav-inner">
+      <div class="logo" aria-label="Velvet Crown Hair Studio">Velvet Crown Hair Studio</div>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#why">Why Choose Us</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#faq">FAQ</a>
+        <a href="#cta">CTA</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero" aria-label="Hero">
+    <img class="hero-img" src="https://im.runware.ai/image/ws/2/ii/848ffc95-cebd-4c97-be26-75e2ae5f2cd7.jpg" alt="Luxurious Abuja salon interior with warm neutrals and gold accents"/>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-content" style="max-width:720px;">
+      <h1 style="font-size:clamp(2rem, 4vw + 1rem, 3.6rem);">Where Luxury Hair Meets Timeless Beauty</h1>
+      <p>Meet our expert stylists delivering modern cuts, color artistry, premium treatments, and bridal styling in Abuja. A luxury experience crafted for professionals, brides, and trendsetters.</p>
+      <div class="cta-group" id="hero-ctas">
+        <a class="btn btn-primary" href="https://wa.me/2348140000000" target="_blank" rel="noopener">Book Your Appointment</a>
+        <a class="btn btn-secondary" href="#services">View Our Services</a>
+        <button class="btn btn-ghost" id="inquireBtn" aria-label="Inquire about services" style="padding:12px 16px;">Inquire (Coming Soon)</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-label="About Velvet Crown">
+    <div class="container" >
+      <div class="grid" style="grid-template-columns:repeat(12,1fr);align-items:stretch;gap:22px;">
+        <div class="card" style="grid-column: span 12;">
+          <div class="card-header">
+            <div class="icon" aria-label="About icon">💎</div>
+            <h3>Our Passion for Hair Artistry</h3>
+          </div>
+          <p class="lead" style="margin:0 0 6px;">Velvet Crown Hair Studio was born from a love of transforming confidence through hair. Our team of master stylists believes every strand can tell a story of luxury, precision, and personal expression. We offer personalized consultations to tailor each visit to you, your lifestyle, and your dream look.</p>
+          <p style="margin:0;">From sleek modern cuts to groundbreaking color artistry, restorative treatments, and bridal styling—our Abuja salon is a sanctuary where craftsmanship meets premium care in a serene, liberating environment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-label="Services">
+    <div class="container">
+      <h2>Services</h2>
+      <p class="lead">Precision, luxury, and artistry across five core domains to elevate every client’s hair journey.</p>
+      <div class="grid" style="grid-template-columns:repeat(12,1fr);gap:22px;margin-top:8px">
+        <!-- Service 1 -->
+        <div class="card" style="grid-column: span 6;">
+          <div class="card-header">
+            <div class="icon" aria-label="Scissor icon">✂️</div>
+            <h3>Precision Haircuts & Styling</h3>
+          </div>
+          <p>Tailored silhouettes, clean lines, and blow-dry finishes that move with confidence.</p>
+          <div class="service-actions">
+            <a class="btn btn-primary" href="https://wa.me/2348140000000" target="_blank" rel="noopener">Book Now</a>
+            <button class="btn btn-ghost" onclick="openInquiry()">Inquire</button>
+          </div>
+        </div>
+        <!-- Service 2 -->
+        <div class="card" style="grid-column: span 6;">
+          <div class="card-header">
+            <div class="icon" aria-label="Color icon">🎨</div>
+            <h3>Luxury Hair Coloring & Balayage</h3>
+          </div>
+          <p>Custom color artistry featuring seamless blends, sun-kissed tones, and moveable color.</p>
+          <div class="service-actions">
+            <a class="btn btn-primary" href="https://wa.me/2348140000000" target="_blank" rel="noopener">Book Now</a>
+            <button class="btn btn-ghost" onclick="openInquiry()">Inquire</button>
+          </div>
+        </div>
+        <!-- Service 3 -->
+        <div class="card" style="grid-column: span 6;">
+          <div class="card-header">
+            <div class="icon" aria-label="Treatment icon">🧴</div>
+            <h3>Hair Treatments & Restoration</h3>
+          </div>
+          <p>Intense repairing rituals, scalp therapies, and scalp-to-ends nourishment with premium products.</p>
+          <div class="service-actions">
+            <a class="btn btn-primary" href="https://wa.me/2348140000000" target="_blank" rel="noopener">Book Now</a>
+            <button class="btn btn-ghost" onclick="openInquiry()">Inquire</button>
+          </div>
+        </div>
+        <!-- Service 4 -->
+        <div class="card" style="grid-column: span 6;">
+          <div class="card-header">
+            <div class="icon" aria-label="Bridal icon">💍</div>
+            <h3>Bridal & Event Hair Styling</h3>
+          </div>
+          <p>Custom cinematographic updos, braids, and timeless wedding day hairstyles with flawless finish.</p>
+          <div class="service-actions">
+            <a class="btn btn-primary" href="https://wa.me/2348140000000" target="_blank" rel="noopener">Book Now</a>
+            <button class="btn btn-ghost" onclick="openInquiry()">Inquire</button>
+          </div>
+        </div>
+        <!-- Service 5 -->
+        <div class="card" style="grid-column: span 12;">
+          <div class="card-header">
+            <div class="icon" aria-label="Protection icon">🛡️</div>
+            <h3>Protective & Natural Hair Styling</h3>
+          </div>
+          <p>Thoughtful styling for natural textures, protective styling, and long-term hair health.</p>
+          <div class="service-actions">
+            <a class="btn btn-primary" href="https://wa.me/2348140000000" target="_blank" rel="noopener">Book Now</a>
+            <button class="btn btn-ghost" onclick="openInquiry()">Inquire</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISUAL / EXPERIENCE -->
+  <section id="experience" aria-label="Visual Experience">
+    <div class="container visual" style="gap:28px;align-items:stretch;">
+      <div class="visual-text" style="flex:1 1 520px;min-width:280px">
+        <h2>Calm, Elegant In-Salon Experience</h2>
+        <p class="lead">From velvet seating to soft ambient lighting and premium product lines, every touchpoint is designed for luxurious ease. Our team embodies professionalism, discretion, and meticulous attention to detail, ensuring you feel celebrated from first consultation to final reveal.</p>
+        <ul>
+          <li>Private styling areas for comfort and privacy</li>
+          <li>Premium products and sanitation standards you can trust</li>
+          <li>Personalized consultations with your stylist</li>
+        </ul>
+      </div>
+      <div style="flex:1 1 420px;min-width:260px">
+        <img src="https://im.runware.ai/image/ws/2/ii/cc5466a1-387c-4248-8577-64ea0d53cf19.jpg" alt="Calm and premium salon experience" style="width:100%;border-radius:12px;box-shadow:var(--shadow);">
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why" aria-label="Why Choose Us">
+    <div class="container">
+      <h2>Why Velvet Crown</h2>
+      <div class="two-col" style="gap:20px;margin-top:8px">
+        <div class="card">
+          <h3>Award-Winning Stylists</h3>
+          <p>Renowned experts celebrated for precision, creativity, and client-centric service.</p>
+        </div>
+        <div class="card">
+          <h3>Premium Products Only</h3>
+          <p>We curate high-performance lines to protect and elevate every texture.</p>
+        </div>
+      </div>
+      <div class="two-col" style="gap:20px;margin-top:12px">
+        <div class="card">
+          <h3>Personalized Consultations</h3>
+          <p>One-on-one planning to tailor looks to your lifestyle, skin tone, and hair history.</p>
+        </div>
+        <div class="card">
+          <h3>Relaxing Luxury Environment</h3>
+          <p>Quiet, refined spaces designed to soothe and inspire confidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" aria-label="Testimonials">
+    <div class="container">
+      <h2>What Clients Say</h2>
+      <div class="grid" style="grid-template-columns:repeat(12,1fr);gap:22px;margin-top:8px">
+        <div class="card" style="grid-column:span 6;min-width:280px">
+          <blockquote>Absolutely the best salon experience I’ve ever had. My hair has never looked better.</blockquote>
+          <p style="margin:0;font-size:.95rem;color:#555">– Client A</p>
+        </div>
+        <div class="card" style="grid-column:span 6;min-width:280px">
+          <blockquote>Professional, luxurious, and welcoming. They truly understand hair.</blockquote>
+          <p style="margin:0;font-size:.95rem;color:#555">– Client B</p>
+        </div>
+        <div class="card" style="grid-column:span 6;min-width:280px">
+          <blockquote>I trusted them for my wedding hair and it was flawless.</blockquote>
+          <p style="margin:0;font-size:.95rem;color:#555">– Client C</p>
+        </div>
+        <div class="card" style="grid-column:span 6;min-width:280px">
+          <blockquote>The attention to detail and care is unmatched.</blockquote>
+          <p style="margin:0;font-size:.95rem;color:#555">– Client D</p>
+        </div>
+        <div class="card" style="grid-column:span 12;min-width:280px">
+          <blockquote>Worth every penny. This is my forever salon.</blockquote>
+          <p style="margin:0;font-size:.95rem;color:#555">– Client E</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" aria-label="Frequently Asked Questions">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="grid" style="grid-template-columns:repeat(12,1fr);gap:16px;margin-top:8px">
+        <div class="card" style="grid-column:span 6;min-width:280px">
+          <details>
+            <summary>Do I need to book an appointment in advance?</summary>
+            <p>Yes. We recommend scheduling ahead to secure your preferred stylist and time slot.</p>
+          </details>
+        </div>
+        <div class="card" style="grid-column:span 6;min-width:280px">
+          <details>
+            <summary>What hair types do you specialize in?</summary>
+            <p>We work with a wide range of textures and densities, from straight to highly curly hair, with expert color and treatment methodologies for every type.</p>
+          </details>
+        </div>
+        <div class="card" style="grid-column:span 6;min-width:280px">
+          <details>
+            <summary>Do you offer bridal or event packages?</summary>
+            <p>Yes. Custom bridal packages are designed around comfort, timing, and photography needs for your big day.</p>
+          </details>
+        </div>
+        <div class="card" style="grid-column:span 6;min-width:280px">
+          <details>
+            <summary>What products do you use in the salon?</summary>
+            <p>We select premium, salon-grade products designed to protect and nourish hair while delivering optimal results.</p>
+          </details>
+        </div>
+        <div class="card" style="grid-column:span 6;min-width:280px">
+          <details>
+            <summary>Can I get a consultation before booking?</summary>
+            <p>Absolutely. We offer complimentary consultations to discuss goals and assess hair health.</p>
+          </details>
+        </div>
+        <div class="card" style="grid-column:span 6;min-width:280px">
+          <details>
+            <summary>How long do appointments usually take?</summary>
+            <p>Duration varies by service. We provide an estimated timeline during your consultation.</p>
+          </details>
+        </div>
+        <div class="card" style="grid-column:span 12;min-width:280px">
+          <details>
+            <summary>Do you offer aftercare advice for my hair?</summary>
+            <p>Yes. We provide personalised aftercare guidance tailored to your routine and goals.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section id="cta" aria-label="Call to Action" style="background:#fff6e9">
+    <div class="container" style="text-align:left;">
+      <h2 style="margin-top:0">Experience Hair at Its Finest</h2>
+      <p class="lead">Elevate your look with Velvet Crown. Elegant styling, personalized care, and timeless beauty await.</p>
+      <div class="cta-group" style="margin:14px 0 28px;">
+        <a class="btn btn-primary" href="https://wa.me/2348140000000" target="_blank" rel="noopener">Book an Appointment Today</a>
+        <a class="btn btn-secondary" href="#services">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer aria-label="Site Footer">
+    <div class="container footer-content">
+      <div class="footer-col" id="contact">
+        <h4>Contact</h4>
+        <p>Phone: +234 800 000 0000</p>
+        <p>Location: Abuja, Nigeria</p>
+        <p>Email: hello@velvetcrown.ng</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>Mon – Sat: 9:00 AM – 7:00 PM</p>
+        <p>Sun: Closed</p>
+      </div>
+      <div class="footer-col" aria-label="Social media">
+        <h4>Follow Us</h4>
+        <div class="social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+      <div class="footer-col" style="min-width:260px;">
+        <p style="opacity:.8;margin:0;font-size:.9rem">made with ❤️ by adorrable.dev</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- OPTIONAL MODAL for Inquire (Coming Soon) -->
+  <div id="inquireModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);align-items:center;justify-content:center;z-index:1000;">
+    <div class="card" style="max-width:520px;width:90%;padding:20px;">
+      <h3 style="margin-top:0">Coming Soon</h3>
+      <p>We are finalizing an enhanced inquiry experience. In the meantime, you can reach us via WhatsApp to discuss your needs.</p>
+      <div class="cta-group" style="margin-top:12px;">
+        <a class="btn btn-primary" href="https://wa.me/2348140000000" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <button class="btn" onclick="closeInquiry()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Inquire modal toggle
+    function openInquiry(){
+      document.getElementById('inquireModal').style.display = 'flex';
+    }
+    function closeInquiry(){
+      document.getElementById('inquireModal').style.display = 'none';
+    }
+    document.getElementById('inquireBtn').addEventListener('click', function(){
+      // open modal for Coming Soon
+      openInquiry();
+    });
+  </script>
+</body>
+</html>
